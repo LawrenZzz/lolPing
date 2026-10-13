@@ -1,0 +1,12 @@
+{
+  "name": "lolping-own-relay",
+  "private": true,
+  "type": "module",
+  "description": "Minimal Nostr relay for lolPing internet rooms — ephemeral fan-out only",
+  "scripts": {
+    "start": "node relay.mjs"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

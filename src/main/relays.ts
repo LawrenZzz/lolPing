@@ -1,19 +1,14 @@
 /**
- * Public Nostr relays that carry internet rooms. Every member connects to all of them, so two members meet as long
- * as they share one that works.
+ * Nostr relays that carry internet rooms. Every member connects to all of them, so two members meet as long as they
+ * share one that works.
  *
- * Chosen with tools/relay-probe on 2026-10-05: of 16 candidates, these 6 accepted kind 24747, echoed with a median of
- * 100–400 ms, took 30 s at 5 events/s without rate-limiting or dropping, and stayed connected through a 10-minute
- * soak. The others refused to connect, or silently stopped forwarding after 6–15 events.
+ * Self-hosted: this fork carries internet rooms on its own relay (tools/own-relay on an Aliyun box), checked with
+ * tools/relay-probe on 2026-10-13 (20/20 echoes, median 9 ms, 30 s burst clean). The upstream public list was:
+ * wss://nos.lol, wss://nostr.mom, wss://relay.snort.social, wss://relay.agentry.com, wss://relay.routstr.com,
+ * wss://nostr.rblb.it — append those back here to also meet clients still on the public relays.
  *
- * Compatibility rule: a later version must keep at least 3 relays from the previous version's list, or old and new
- * versions can no longer find each other.
+ * Members only meet on a relay both sides list, so everyone must run a build pointing at the same server.
  */
 export const RELAYS: readonly string[] = [
-  'wss://nos.lol',
-  'wss://nostr.mom',
-  'wss://relay.snort.social',
-  'wss://relay.agentry.com',
-  'wss://relay.routstr.com',
-  'wss://nostr.rblb.it',
+  'ws://8.137.204.7:37979',
 ];
